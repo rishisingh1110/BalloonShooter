@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext } from "react";
+import styles from "./App.module.css";
+import LeftDiv from "./components/LeftDiv";
+import MidDiv from "./components/MidDiv";
+import RightDiv from "./components/RightDiv";
+import { EmptyDivContext } from "./contexts/EmptyDivContext";
+import { MidBoxContext } from "./contexts/MidBoxContext";
 
 function App() {
+  const { balloons1 } = useContext(EmptyDivContext);
+  const { balloons2 } = useContext(MidBoxContext);
+  // console.log(balloons1, balloons2);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Balloon Shooter</h1>
+      <div className={styles.App}>
+        <LeftDiv />
+        <MidDiv />
+        <RightDiv />
+      </div>
+    </>
   );
 }
 
